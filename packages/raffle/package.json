@@ -1,0 +1,38 @@
+{
+  "name": "@raffle/react",
+  "version": "0.0.0",
+  "description": "Render-as-you-fetch query handles for TanStack Router and Start, built on TanStack Query.",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "vp pack",
+    "dev": "vp pack --watch",
+    "test": "vp test",
+    "check": "vp check"
+  },
+  "devDependencies": {
+    "@tanstack/react-query": "catalog:",
+    "@tanstack/react-router": "catalog:",
+    "@testing-library/react": "catalog:",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "jsdom": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "typescript": "catalog:",
+    "vite-plus": "catalog:"
+  },
+  "peerDependencies": {
+    "@tanstack/react-query": "^5.104.0",
+    "@tanstack/react-router": "^1.170.0",
+    "react": "^19.0.0"
+  }
+}
