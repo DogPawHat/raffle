@@ -6,6 +6,8 @@
   "scripts": {
     "ready": "vp check && vp run -r test && vp run -r build",
     "dev": "vp run @raffle/react#build && vp run start-basic#dev",
+    "dev:query": "vp run start-query#dev",
+    "dev:raf-query": "vp run start-raf-query#dev",
     "prepare": "vp config"
   },
   "devDependencies": {

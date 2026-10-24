@@ -38,7 +38,7 @@ function PostPage() {
         <button
           type="button"
           onClick={() =>
-            queryClient.invalidateQueries({ queryKey: ["posts", post.id], exact: true })
+            void queryClient.invalidateQueries({ queryKey: ["posts", post.id], exact: true })
           }
         >
           Refetch post

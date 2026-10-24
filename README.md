@@ -28,15 +28,25 @@ function PostPage() {
 }
 ```
 
-| Path                                             | What                                              |
-| ------------------------------------------------ | ------------------------------------------------- |
-| [`packages/raffle`](./packages/raffle)           | `@raffle/react`, the library                      |
-| [`examples/start-basic`](./examples/start-basic) | A TanStack Start app using it, with SSR streaming |
+| Path                                                     | What                                                                    |
+| -------------------------------------------------------- | ----------------------------------------------------------------------- |
+| [`packages/raffle`](./packages/raffle)                   | `@raffle/react`, the library                                            |
+| [`examples/start-basic`](./examples/start-basic)         | A TanStack Start app using it, with SSR streaming                       |
+| [`examples/start-query`](./examples/start-query)         | The same app with plain TanStack Query, `queryOptions` in route context |
+| [`examples/start-raf-query`](./examples/start-raf-query) | The same app with [raf-query](https://github.com/KATT/raf-query)        |
+
+The three examples render the same pages, so the patterns can be compared side by side:
+
+- **`start-basic`** registers `queryOptions` in each route's `context`, starts them in the loader and reads them through the raffle the loader returns.
+- **`start-query`** follows TkDodo's [Reliable Query Prefetching with TanStack Router](https://tkdodo.eu/blog/reliable-query-prefetching-with-tanstack-router): each route builds its `queryOptions` in `context`, the loader passes them to `queryClient.query()` (awaited, or not awaited with `.catch(noop)`), and components read the same objects with `Route.useRouteContext()` and `useSuspenseQuery` or `useQuery`.
+- **`start-raf-query`** uses raf-query: the loader calls `prefetch` or `ensure` and returns handles, and a component can only read a query through `useQuery(factory, handle)`, so every query must be started before it's read.
 
 ## Development
 
 ```bash
 vp install
-vp run dev          # build the library, then run the example on :3000
-vp run ready        # check, test and build everything
+vp run dev           # build the library, then run the raffle example on :3000
+vp run dev:query     # run the TanStack Query example on :3001
+vp run dev:raf-query # run the raf-query example on :3002
+vp run ready         # check, test and build everything
 ```
