@@ -8,6 +8,9 @@
     "dev": "vp run @raffle/react#build && vp run start-basic#dev",
     "dev:query": "vp run start-query#dev",
     "dev:raf-query": "vp run start-raf-query#dev",
+    "dev:tracker-raffle": "vp run @raffle/react#build && vp run tracker-raffle#dev",
+    "dev:tracker-query": "vp run tracker-query#dev",
+    "dev:tracker-raf-query": "vp run tracker-raf-query#dev",
     "prepare": "vp config"
   },
   "devDependencies": {
