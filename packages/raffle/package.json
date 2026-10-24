@@ -1,6 +1,7 @@
 {
   "name": "@raffle/react",
   "version": "0.0.0",
+  "private": true,
   "description": "Render-as-you-fetch query handles for TanStack Router and Start, built on TanStack Query.",
   "license": "MIT",
   "files": [
